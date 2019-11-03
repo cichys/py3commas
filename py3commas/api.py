@@ -31,9 +31,9 @@ class Api:
         )
         return response
 
-    def request(self, api_domain: str, api_name: str = '', _id: str = None):
-        api = APIS[api_domain][api_name]
+    def request(self, domain: str, name: str = '', _id: str = None):
+        api = APIS[domain][name]
         api_path = api[1]
         if '{id}' in api_path:
             api_path = api_path.replace('{id}', _id)
-        self._make_request(api[0], api_domain + api_path, '')
+        return self._make_request(api[0], domain + api_path, '')
