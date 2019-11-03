@@ -1,6 +1,7 @@
 import hashlib
 import hmac
 import requests
+import json
 from .config import API_URL, API_VERSION, APIS
 
 
@@ -29,7 +30,7 @@ class Api:
                 'Signature': signature
             }
         )
-        return response
+        return json.loads(response.text)
 
     def request(self, domain: str, name: str = '', _id: str = None):
         api = APIS[domain][name]
