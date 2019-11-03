@@ -5,7 +5,6 @@ setup(
     version='0.0.1',
 
     description='3commas Python wrapper',
-    long_description=open('README.rst').read(),
 
     url='https://github.com/cichys/py3commas',
 
@@ -34,7 +33,5 @@ setup(
 
     install_requires=[
         'requests',
-        'hashlib',
-        'hmac'
     ],
 )
