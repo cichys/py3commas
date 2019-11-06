@@ -10,7 +10,7 @@ How to install
 
 How to use
 
-    from py3commas.api import Api
+    from py3commas.request import Py3Commas
 
-    p3c = Api(key='', secret='')
+    p3c = Py3Commas(key='', secret='')
     response = p3c.request('smart_trades', '')

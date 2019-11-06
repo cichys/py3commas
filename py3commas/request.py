@@ -5,9 +5,14 @@ import json
 from .config import API_URL, API_VERSION, APIS
 
 
-class Api:
+class Py3Commas:
 
     def __init__(self, key: str, secret: str):
+        if key is None or key == '':
+            raise ValueError('Missing key')
+        if secret is None or secret == '':
+            raise ValueError('Missing secret')
+
         self.url = API_URL
         self.version = API_VERSION
         self.key = key
@@ -33,8 +38,15 @@ class Api:
         return json.loads(response.text)
 
     def request(self, domain: str, name: str = '', _id: str = None):
+        if domain is None or domain == '':
+            raise ValueError('Missing domain')
+        if domain not in APIS:
+            raise ValueError('Invalid domain')
+
         api = APIS[domain][name]
         api_path = api[1]
         if '{id}' in api_path:
+            if _id is None or _id == '':
+                raise ValueError('Missing id')
             api_path = api_path.replace('{id}', _id)
         return self._make_request(api[0], domain + api_path, '')
