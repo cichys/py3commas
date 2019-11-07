@@ -17,6 +17,4 @@ jobs:
     - name: Set up Pytest
       uses: cclauss/GitHub-Action-for-pytest@0.0.2
       with:
-        args: pytest -h
-    - name: Tests
-      run: pytest py3commas/test_request.py
+        args: pytest py3commas/test_request.py
