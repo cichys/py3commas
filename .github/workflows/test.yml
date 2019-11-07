@@ -14,9 +14,9 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - name: Pip
-      run: python -m pip install .
+#    - name: Pip
+#      run: python -m pip install .
     - name: Set up Pytest
       uses: cclauss/GitHub-Action-for-pytest@0.0.2
       with:
-        args: pytest py3commas/test_request.py
+        args: python -m pip install . && pytest py3commas/test_request.py
