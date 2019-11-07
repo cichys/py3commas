@@ -40,6 +40,16 @@ def test_error_invalid_domain():
     excinfo.match(r'Invalid domain')
 
 
+def test_error_invalid_api():
+    p3c = Py3Commas(
+        key='mykey',
+        secret='mysupersecret'
+    )
+    with pytest.raises(ValueError) as excinfo:
+        assert p3c.request('smart_trades', 'test')
+    excinfo.match(r'Invalid api')
+
+
 def test_error_missing_id():
     p3c = Py3Commas(
         key='mykey',
