@@ -9,11 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: cclauss/GitHub-Action-for-pytest@0.0.2
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
+    - name: Set up Pytest
+      uses: cclauss/GitHub-Action-for-pytest@0.0.2
+      with:
+        args: pytest -h
     - name: Tests
       run: pytest py3commas/test_request.py
     - name: Install dependencies
