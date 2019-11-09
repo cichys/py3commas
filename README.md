@@ -16,12 +16,12 @@ from py3commas.request import Py3Commas
 
 p3c = Py3Commas(key='', secret='')
 response = p3c.request(
-    domain='smart_trades',
-    name=''
+    entity='smart_trades',
+    action=''
 )
 response = p3c.request(
-    domain='smart_trades', 
-    name='create_smart_trade', 
+    entity='smart_trades', 
+    action='create_smart_trade', 
     payload={
         "account_id": 123456
     }

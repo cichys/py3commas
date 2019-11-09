@@ -36,15 +36,15 @@ class Py3Commas:
         )
         return json.loads(response.text)
 
-    def request(self, domain: str, name: str = '', _id: str = None, payload: any = None):
-        if domain is None or domain == '':
-            raise ValueError('Missing domain')
-        if domain not in APIS:
-            raise ValueError('Invalid domain')
-        if name not in APIS[domain]:
-            raise ValueError('Invalid api')
+    def request(self, entity: str, action: str = '', _id: str = None, payload: any = None):
+        if entity is None or entity == '':
+            raise ValueError('Missing entity')
+        if entity not in APIS:
+            raise ValueError('Invalid entity')
+        if action not in APIS[entity]:
+            raise ValueError('Invalid action')
 
-        api = APIS[domain][name]
+        api = APIS[entity][action]
         api_path = api[1]
         if '{id}' in api_path:
             if _id is None or _id == '':
@@ -53,7 +53,7 @@ class Py3Commas:
 
         return self._make_request(
             http_method=api[0],
-            path=domain + api_path,
+            path=entity + api_path,
             params='',
             payload=payload
         )
