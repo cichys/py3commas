@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  [push, pull_request]:
+    branches:
+      - master
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - name: Run tests
+      uses: cclauss/GitHub-Action-for-pytest@0.0.2
+      with:
+        args: python -m pip install . && pytest py3commas/test_request.py
