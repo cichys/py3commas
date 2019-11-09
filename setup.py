@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='py3commas',
-    version='0.0.4',
+    version='0.0.6',
 
     description='3commas Python wrapper',
 
