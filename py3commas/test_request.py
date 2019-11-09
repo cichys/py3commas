@@ -20,34 +20,34 @@ def test_error_missing_secret():
     excinfo.match(r'Missing secret')
 
 
-def test_error_missing_domain():
+def test_error_missing_entity():
     p3c = Py3Commas(
         key='mykey',
         secret='mysupersecret'
     )
     with pytest.raises(ValueError) as excinfo:
         assert p3c.request('', '')
-    excinfo.match(r'Missing domain')
+    excinfo.match(r'Missing entity')
 
 
-def test_error_invalid_domain():
+def test_error_invalid_entity():
     p3c = Py3Commas(
         key='mykey',
         secret='mysupersecret'
     )
     with pytest.raises(ValueError) as excinfo:
         assert p3c.request('test', '')
-    excinfo.match(r'Invalid domain')
+    excinfo.match(r'Invalid entity')
 
 
-def test_error_invalid_api():
+def test_error_invalid_action():
     p3c = Py3Commas(
         key='mykey',
         secret='mysupersecret'
     )
     with pytest.raises(ValueError) as excinfo:
         assert p3c.request('smart_trades', 'test')
-    excinfo.match(r'Invalid api')
+    excinfo.match(r'Invalid action')
 
 
 def test_error_missing_id():
