@@ -1,7 +1,8 @@
 # py3commas [![PyPI version](https://badge.fury.io/py/py3commas.svg)](https://badge.fury.io/py/py3commas) ![my badge](https://action-badges.now.sh/cichys/py3commas)
+
 Unofficial Python wrapper for the [3Commas API](https://github.com/3commas-io/3commas-official-api-docs)
 
-W.I.P.
+***
 
 How to install 
 
